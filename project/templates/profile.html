@@ -1,0 +1,33 @@
+<!-- templates/profile.html -->
+{% extends "base.html" %}
+
+{% block title %}Редактирование профиля{% endblock %}
+
+{% block content %}
+<h2>Изменение профиля</h2>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.username.label }}<br>
+        {{ form.username(size=32) }}<br>
+        {% for error in form.username.errors %}
+          <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.email.label }}<br>
+        {{ form.email(size=64) }}<br>
+        {% for error in form.email.errors %}
+          <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.new_password.label }}<br>
+        {{ form.new_password(size=32) }}<br>
+        {% for error in form.new_password.errors %}
+          <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(class_="btn btn-primary") }}</p>
+</form>
+{% endblock %}
