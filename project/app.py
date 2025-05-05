@@ -1,9 +1,11 @@
 # app.py
-from flask import Flask, render_template, redirect, url_for, flash
+from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, current_user, login_required, login_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
+
+
 
 app = Flask(__name__)
 
