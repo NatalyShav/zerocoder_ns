@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование профиля</title>
+</head>
+<body>
+    <h1>Ваш профиль</h1>
+    {% if current_user %}
+        Привет, {{ current_user.username }}!
+        <a href="/logout">Выход</a>
+        <hr>
+        <form method="POST" action="/edit-profile">
+            Изменение имени пользователя:<br><input type="text" name="new_username" value="{{ current_user.username }}"><br>
+            Новая почта:<br><input type="email" name="new_email" value="{{ current_user.email }}"><br>
+            Новый пароль:<br><input type="password" name="new_password"><br>
+            Повторите новый пароль:<br><input type="password" name="confirm_new_password"><br>
+            <button type="submit">Обновить данные</button>
+        </form>
+    {% else %}
+        Вы не вошли.<br>
+        <a href="/login">Войдите</a> или <a href="/register">зарегистрируйтесь</a>.
+    {% endif %}
+</body>
+</html>

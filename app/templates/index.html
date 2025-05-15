@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+    <h1>Добро пожаловать!</h1>
+    <ul>
+        <li><a href="/register">Регистрация</a></li>
+        <li><a href="/login">Вход</a></li>
+        {% if session.get('logged_in') %}
+            <li><a href="/profile">Просмотреть профиль</a></li>
+            <li><a href="/logout">Выход</a></li>
+        {% endif %}
+    </ul>
+</body>
+</html>

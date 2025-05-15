@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+</head>
+<body>
+    <h1>Регистрация</h1>
+    {% for message in get_flashed_messages() %}
+        <p style="color: red;">{{ message }}</p>
+    {% endfor %}
+    <form method="POST" action="/register">
+        Имя пользователя:<br><input type="text" name="username"><br>
+        Email:<br><input type="email" name="email"><br>
+        Пароль:<br><input type="password" name="password"><br>
+        Подтверждение пароля:<br><input type="password" name="confirm_password"><br>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+</body>
+</html>
